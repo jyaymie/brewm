@@ -1,0 +1,10 @@
+.cafe-photo-container {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
+.cafe-photo {
+	width: 100%;
+}

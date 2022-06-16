@@ -1,12 +1,17 @@
 import React from 'react';
 import CafeDetails from './CafeDetails';
 
-function Cafes(props) {
+function Cafes({ cafes }) {
 	return (
-		<div>
-			Hello from Cafes
-			<CafeDetails />
-		</div>
+		<section>
+			{cafes.map((cafe) => (
+				<div className='result'>
+					<div className='result-name'>{cafe.name}</div>
+					<div className='result-distance'>{cafe.distance} meters away</div>
+					<CafeDetails />
+				</div>
+			))}
+		</section>
 	);
 }
 
