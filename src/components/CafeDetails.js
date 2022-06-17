@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useEffect, useState } from 'react';
 import CafePhotos from './CafePhotos';
 import CafeMap from './CafeMap';
 import CafeHours from './CafeHours';
@@ -105,12 +105,34 @@ const initialCafe = {
 };
 
 function CafeDetails(props) {
-	const [cafe, setCafe] = useState(initialCafe)
+	const [cafe, setCafe] = useState(initialCafe);
+
+	useEffect(() => {
+		fetch(
+			// Fetch 10 cafes that are within a ~10-mile radius of the submitted location.
+			`https://api.yelp.com/v3/businesses/${cafe.alias}`,
+			{
+				method: 'GET',
+				headers: {
+					Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`,
+				},
+			}
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				setCafe(data);
+				console.log(cafe);
+			})
+			.catch((err) => {
+				console.err('Uh-oh, something went wrong...', err);
+			});
+	}, [cafe]);
+
 	return (
 		<section>
-			<CafePhotos cafe={cafe}/>
-			<CafeMap cafe={cafe}/>
-			<CafeHours cafe={cafe}/>
+			<CafePhotos cafe={cafe} />
+			<CafeMap cafe={cafe} />
+			<CafeHours cafe={cafe} />
 		</section>
 	);
 }

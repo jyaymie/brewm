@@ -1,10 +1,11 @@
 import React from 'react';
-import './CafeHours.css'
+import './CafeHours.css';
 
 function CafeHours({ cafe }) {
 	const businessHours = cafe.hours[0].open;
 	return (
-		<ul>Business Hours
+		<ul>
+			Business Hours
 			{businessHours.map((day) => (
 				<li className='hours' key={day.day}>
 					{day.day}: {day.start} - {day.end}

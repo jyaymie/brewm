@@ -1,11 +1,11 @@
 import React from 'react';
-import './CafePhotos.css'
+import './CafePhotos.css';
 
 function CafePhotos({ cafe }) {
 	return (
 		<div className='cafe-photo-container'>
 			{cafe.photos.map((photo) => (
-				<img src={photo} alt={cafe.name} className='cafe-photo'/>
+				<img src={photo} alt={cafe.name} className='cafe-photo' key={photo} />
 			))}
 		</div>
 	);
