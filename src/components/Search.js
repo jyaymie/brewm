@@ -1,11 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Search({ location, setLocation }) {
-	const [locationText, setLocationText] = useState('');
+	const [locationText, setLocationText] = useState(location);
+	let navigate = useNavigate();
 
 	function handleSubmit(e) {
 		e.preventDefault();
 		setLocation(locationText);
+		// Programmatically navigate to the search results.
+		// https://reactrouter.com/docs/en/v6/hooks/use-navigate
+		navigate('cafes');
 	}
 
 	return (

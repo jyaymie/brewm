@@ -2,7 +2,7 @@ import React from 'react';
 import './CafeHours.css';
 
 function CafeHours({ cafe }) {
-	const businessHours = cafe.hours[0].open;
+	const businessHours = cafe.hours ? cafe.hours[0].open : []
 	return (
 		<ul>
 			Business Hours
