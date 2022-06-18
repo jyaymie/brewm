@@ -1,11 +1,13 @@
 import React from 'react';
+import './CafeMap.css'
 
 function CafeMap({ cafe }) {
 	return (
-		<div>Location:
-			<p>{cafe.coordinates.latitude}</p>
-			<p>{cafe.coordinates.longitude}</p>
-		</div>
+		<ul className='location-container'>
+			<strong>Location:</strong>
+			<li className="address">{cafe.location.display_address[0]}</li>
+			<li className="address">{cafe.location.display_address[1]}</li>
+		</ul>
 	);
 }
 

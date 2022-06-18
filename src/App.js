@@ -10,29 +10,27 @@ function App() {
 	const [cafes, setCafes] = useState([]);
 
 	useEffect(() => {
-		if (!location) {
-			return;
+		if (location) {
+			fetch(
+				// Fetch 10 cafes that are within a ~10-mile radius of the submitted location.
+				// Use Heroku as a workaround for CORS errors.
+				`https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10`,
+				{
+					method: 'GET',
+					headers: {
+						Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`,
+					},
+				}
+			)
+				.then((res) => res.json())
+				.then((data) => {
+					console.log(data.businesses);
+					setCafes(data.businesses);
+				})
+				.catch((err) => {
+					console.log('Uh-oh, something went wrong...', err);
+				});
 		}
-
-		fetch(
-			// Fetch 10 cafes that are within a ~10-mile radius of the submitted location.
-			// Use Heroku as a workaround for CORS errors.
-			`https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10`,
-			{
-				method: 'GET',
-				headers: {
-					Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`,
-				},
-			}
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data.businesses);
-				setCafes(data.businesses);
-			})
-			.catch((err) => {
-				console.log('Uh-oh, something went wrong...', err);
-			});
 	}, [location]);
 
 	return (

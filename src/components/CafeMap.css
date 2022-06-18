@@ -1,0 +1,10 @@
+.location-container {
+	display: flex;
+    flex-direction: column;
+	justify-content: flex-start;
+}
+
+.address {
+    list-style: none;
+	width: 100%;
+}
