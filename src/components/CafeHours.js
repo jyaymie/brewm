@@ -23,16 +23,19 @@ function getFormattedTime(fourDigitTime) {
 
 function CafeHours({ cafe }) {
 	return (
-		<ul className='business-hours-container'>
-			<strong>Business Hours:</strong>
-			{cafe.hours[0].open.map((businessHours) => (
-				<li className='business-hours' key={businessHours.day}>
-					{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
-						businessHours.start
-					)} - ${getFormattedTime(businessHours.end)}`}
-				</li>
-			))}
-		</ul>
+		<div>
+			<ul className='business-hours-container'>
+				<strong>Business Hours:</strong>
+				{cafe.hours[0].open.map((businessHours) => (
+					<li className='business-hours' key={businessHours.day}>
+						{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
+							businessHours.start
+						)} - ${getFormattedTime(businessHours.end)}`}
+					</li>
+				))}
+			</ul>
+			<a href={`tel:${cafe.phone}`}>Call: {cafe.display_phone}</a>
+		</div>
 	);
 }
 

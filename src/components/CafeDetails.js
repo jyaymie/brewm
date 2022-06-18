@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CafePhotos from './CafePhotos';
-import CafeMap from './CafeMap';
+import CafeLocation from './CafeLocation';
 import CafeHours from './CafeHours';
 
 function CafeDetails() {
 	const [cafe, setCafe] = useState({
 		location: {
 			display_address: [],
+		},
+		coordinates: {
 		},
 		photos: [],
 		hours: [
@@ -43,7 +45,7 @@ function CafeDetails() {
 	return (
 		<section>
 			<CafePhotos cafe={cafe} />
-			<CafeMap cafe={cafe} />
+			<CafeLocation cafe={cafe} />
 			<CafeHours cafe={cafe} />
 		</section>
 	);
