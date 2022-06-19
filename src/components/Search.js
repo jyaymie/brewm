@@ -5,7 +5,7 @@ function Search({ location, setLocation }) {
 	const [locationText, setLocationText] = useState(location);
 	let navigate = useNavigate();
 
-	function handleSubmit(e) {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		setLocation(locationText);
 		// Programmatically navigate to the search results.

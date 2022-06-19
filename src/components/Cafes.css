@@ -1,0 +1,45 @@
+.results-container {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+}
+
+.result {
+	height: 400px;
+	width: 800px;
+	overflow: hidden;
+}
+
+.result-text {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	height: 400px;
+	width: 800px;
+	margin: 0 20px;
+	z-index: 1;
+	line-height: 1.25;
+}
+
+.result-name {
+	font-size: 4rem;
+	font-weight: bold;
+}
+
+.result-distance {
+	font-size: 1.5rem;
+	margin: 0 3px;
+}
+
+.result-image {
+	background-color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+	width: 800px;
+	filter: grayscale(1);
+	opacity: 30%;
+}

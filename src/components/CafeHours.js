@@ -13,7 +13,7 @@ const daysOfWeek = {
 
 // Convert the fetched military time to standard time.
 // https://stackoverflow.com/a/14403158
-function getFormattedTime(fourDigitTime) {
+const getFormattedTime = (fourDigitTime) => {
 	const hours24 = parseInt(fourDigitTime.substring(0, 2));
 	const hours = ((hours24 + 11) % 12) + 1;
 	const amPm = hours24 > 11 ? 'pm' : 'am';
@@ -34,7 +34,10 @@ function CafeHours({ cafe }) {
 					</li>
 				))}
 			</ul>
-			<a href={`tel:${cafe.phone}`}>Call: {cafe.display_phone}</a>
+			<a href={`tel:${cafe.phone}`}>
+				<strong>Call</strong>
+			</a>
+			<p>{cafe.display_phone}</p>
 		</div>
 	);
 }

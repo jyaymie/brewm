@@ -12,7 +12,7 @@ function CafeLocation({ cafe }) {
 			<a
 				href={`https://maps.google.com?q=${cafe.coordinates.latitude},${cafe.coordinates.longitude}`}
 				target='_blank'>
-				Google Maps
+				Map It
 			</a>
 		</div>
 	);

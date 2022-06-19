@@ -3,7 +3,7 @@ import './CafePhotos.css';
 
 function CafePhotos({ cafe }) {
 	return (
-		<div className='photo-container'>
+		<div className='photos-container'>
 			{cafe.photos.map((photo) => (
 				<img src={photo} alt={cafe.name} className='photo' key={photo} />
 			))}
