@@ -43,7 +43,9 @@ function App() {
 					/>
 					<Route
 						path='cafes'
-						element={<Cafes location={location} cafes={cafes} />}
+						element={
+							<Cafes location={location} cafes={cafes} setCafes={setCafes} />
+						}
 					/>
 					<Route path='cafes/:id' element={<CafeDetails />} />
 				</Routes>

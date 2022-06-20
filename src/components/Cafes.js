@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import Filters from './Filters';
 
-function Cafes({ location, cafes }) {
+function Cafes({ location, cafes, setCafes }) {
 	// Convert meters to miles.
 	const getMiles = (meters) => {
 		return meters * 0.000621371;
@@ -11,7 +11,7 @@ function Cafes({ location, cafes }) {
 
 	return (
 		<div>
-			<Filters location={location}/>
+			<Filters location={location} setCafes={setCafes} />
 			<header className='cafes-header'>
 				<h1>
 					Brewms Near <span className='location-text'>{location}</span>
@@ -29,7 +29,7 @@ function Cafes({ location, cafes }) {
 							<div className='result-text'>
 								<div className='result-name'>{cafe.name}</div>
 								<div className='result-distance'>
-									{getMiles(cafe.distance).toFixed(2)} mi away
+									{getMiles(cafe.distance).toFixed(2)} miles away
 								</div>
 							</div>
 							<div

@@ -5,7 +5,7 @@ function Search({ location, setLocation }) {
 	const [locationText, setLocationText] = useState(location);
 	let navigate = useNavigate();
 
-	const handleSubmit = (e) => {
+	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 		setLocation(locationText);
 		// Programmatically navigate to the search results.
@@ -18,7 +18,7 @@ function Search({ location, setLocation }) {
 			<header>
 				<h1>Find a Brewm</h1>
 			</header>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSearchSubmit}>
 				<label htmlFor='location'>Location: </label>
 				<input
 					type='text'
