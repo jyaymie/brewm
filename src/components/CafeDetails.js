@@ -1,5 +1,6 @@
+import './CafeDetails.css';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import CafePhotos from './CafePhotos';
 import CafeLocation from './CafeLocation';
 import CafeHours from './CafeHours';
@@ -9,8 +10,7 @@ function CafeDetails() {
 		location: {
 			display_address: [],
 		},
-		coordinates: {
-		},
+		coordinates: {},
 		photos: [],
 		hours: [
 			{
@@ -43,11 +43,20 @@ function CafeDetails() {
 	}, []);
 
 	return (
-		<section>
-			<CafePhotos cafe={cafe} />
-			<CafeLocation cafe={cafe} />
-			<CafeHours cafe={cafe} />
-		</section>
+		<div className='details-container'>
+			<header>
+				<h1>{cafe.name}</h1>
+			</header>
+			<section>
+				<div>
+					<CafePhotos cafe={cafe} />
+				</div>
+				<div className='details-text'>
+					<CafeLocation cafe={cafe} />
+					<CafeHours cafe={cafe} />
+				</div>
+			</section>
+		</div>
 	);
 }
 

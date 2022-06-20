@@ -1,3 +1,27 @@
+.cafes-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.location-text {
+	color: darkgoldenrod;
+}
+
+.search-link {
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+.search-link a:hover {
+	background-color: transparent;
+    color: darkgoldenrod;
+}
+
+.search-icon {
+	font-size: 1.5rem;
+}
+
 .results-container {
 	display: flex;
 	flex-direction: column;
@@ -41,5 +65,5 @@
 	height: 400px;
 	width: 800px;
 	filter: grayscale(1);
-	opacity: 30%;
+	opacity: 40%;
 }

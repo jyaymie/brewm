@@ -3,6 +3,6 @@
 	flex-direction: column;
 }
 
-.business-hours {
-	list-style: none;
+.business-hours, .call-link, .phone-number {
+	margin: 0 10px;
 }

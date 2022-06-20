@@ -1,4 +1,3 @@
-import React from 'react';
 import './CafePhotos.css';
 
 function CafePhotos({ cafe }) {

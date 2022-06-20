@@ -1,6 +1,6 @@
+import './App.css';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import './App.css';
 import Search from './components/Search';
 import Cafes from './components/Cafes';
 import CafeDetails from './components/CafeDetails';
@@ -35,18 +35,16 @@ function App() {
 
 	return (
 		<div className='app'>
-			<header>
-				<h1>
-					<Link to='/'>cafe-finder</Link>
-				</h1>
-			</header>
 			<main>
 				<Routes>
 					<Route
 						path='/'
 						element={<Search location={location} setLocation={setLocation} />}
 					/>
-					<Route path='cafes' element={<Cafes cafes={cafes} />} />
+					<Route
+						path='cafes'
+						element={<Cafes location={location} cafes={cafes} />}
+					/>
 					<Route path='cafes/:id' element={<CafeDetails />} />
 				</Routes>
 			</main>

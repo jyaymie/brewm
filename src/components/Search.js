@@ -11,10 +11,13 @@ function Search({ location, setLocation }) {
 		// Programmatically navigate to the search results.
 		// https://reactrouter.com/docs/en/v6/hooks/use-navigate
 		navigate('cafes');
-	}
+	};
 
 	return (
 		<div>
+			<header>
+				<h1>Find a Brewm</h1>
+			</header>
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='location'>Location: </label>
 				<input

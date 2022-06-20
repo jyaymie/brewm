@@ -1,4 +1,3 @@
-import React from 'react';
 import './CafeHours.css';
 
 const daysOfWeek = {
@@ -19,25 +18,25 @@ const getFormattedTime = (fourDigitTime) => {
 	const amPm = hours24 > 11 ? 'pm' : 'am';
 	const minutes = fourDigitTime.substring(2);
 	return hours + ':' + minutes + amPm;
-}
+};
 
 function CafeHours({ cafe }) {
 	return (
 		<div>
-			<ul className='business-hours-container'>
-				<strong>Business Hours:</strong>
+			<div className='business-hours-container'>
 				{cafe.hours[0].open.map((businessHours) => (
-					<li className='business-hours' key={businessHours.day}>
+					<p className='business-hours' key={businessHours.day}>
 						{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
 							businessHours.start
 						)} - ${getFormattedTime(businessHours.end)}`}
-					</li>
+					</p>
 				))}
-			</ul>
-			<a href={`tel:${cafe.phone}`}>
-				<strong>Call</strong>
+			</div>
+            <br/>
+			<a href={`tel:${cafe.phone}`} className='call-link'>
+				<strong>Call 📞</strong>
 			</a>
-			<p>{cafe.display_phone}</p>
+			<p className="phone-number">{cafe.display_phone}</p>
 		</div>
 	);
 }
