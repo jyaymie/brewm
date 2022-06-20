@@ -14,7 +14,7 @@ function App() {
 			fetch(
 				// Fetch 10 cafes that are within a ~10-mile radius of the submitted location.
 				// Use Heroku as a workaround for CORS errors. (Thank you, Esin Saridubak!)
-				`https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10`,
+				`https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10&sort_by=distance`,
 				{
 					method: 'GET',
 					headers: {

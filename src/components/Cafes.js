@@ -1,6 +1,7 @@
 import './Cafes.css';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
+import Filters from './Filters';
 
 function Cafes({ location, cafes }) {
 	// Convert meters to miles.
@@ -10,6 +11,7 @@ function Cafes({ location, cafes }) {
 
 	return (
 		<div>
+			<Filters location={location}/>
 			<header className='cafes-header'>
 				<h1>
 					Brewms Near <span className='location-text'>{location}</span>
