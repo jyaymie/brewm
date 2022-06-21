@@ -1,6 +1,15 @@
+import { Dropdown } from 'bootstrap';
 import { useState, useEffect } from 'react';
+import './Filters.css';
 
 function Filters({ location, setCafes }) {
+	// Display the filters with a dropdown button.
+	const [isOpen, setIsOpen] = useState(false);
+
+	const handleDropdownDisplay = () => {
+		setIsOpen(!isOpen);
+	};
+
 	const [is1$Checked, setIs1$Checked] = useState(false);
 	const [is2$Checked, setIs2$Checked] = useState(false);
 	const [is3$Checked, setIs3$Checked] = useState(false);
@@ -62,35 +71,44 @@ function Filters({ location, setCafes }) {
 	}, [url]);
 
 	return (
-		<form onSubmit={handleFilterSubmit}>
-			<p>Price</p>
-			<input
-				type='checkbox'
-				name='price-1$'
-				id='price-1$'
-				checked={is1$Checked}
-				onChange={() => setIs1$Checked(!is1$Checked)}
-			/>
-			<label htmlFor='price-1$'>$</label>
-			<input
-				type='checkbox'
-				name='price-2$'
-				id='price-2$'
-				checked={is2$Checked}
-				onChange={() => setIs2$Checked(!is2$Checked)}
-			/>
-			<label htmlFor='price-2$'>$$</label>
-			<input
-				type='checkbox'
-				name='price-3$'
-				id='price-3$'
-				checked={is3$Checked}
-				onChange={() => setIs3$Checked(!is3$Checked)}
-			/>
-			<label htmlFor='price-3$'>$$$</label>
-			<br />
-			<button type='submit'>Apply</button>
-		</form>
+		<div>
+			<button type='button' onClick={handleDropdownDisplay}>
+				Filters
+			</button>
+			<form
+				onSubmit={handleFilterSubmit}
+				className={isOpen ? 'form-display' : 'form-display-none'}>
+				<p>Price</p>
+				<input
+					type='checkbox'
+					name='price-1$'
+					id='price-1$'
+					checked={is1$Checked}
+					onChange={() => setIs1$Checked(!is1$Checked)}
+				/>
+				<label htmlFor='price-1$'>$</label>
+				<input
+					type='checkbox'
+					name='price-2$'
+					id='price-2$'
+					checked={is2$Checked}
+					onChange={() => setIs2$Checked(!is2$Checked)}
+				/>
+				<label htmlFor='price-2$'>$$</label>
+				<input
+					type='checkbox'
+					name='price-3$'
+					id='price-3$'
+					checked={is3$Checked}
+					onChange={() => setIs3$Checked(!is3$Checked)}
+				/>
+				<label htmlFor='price-3$'>$$$</label>
+				<br />
+				<button type='submit' onClick={handleDropdownDisplay}>
+					Apply
+				</button>
+			</form>
+		</div>
 	);
 }
 
