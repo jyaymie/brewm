@@ -12,13 +12,14 @@ function Cafes({ location, cafes, setCafes }) {
 	return (
 		<div>
 			<header className='cafes-header'>
-				<div className='filters-component'>
+				<div className='filters-container'>
 					<Filters location={location} setCafes={setCafes} />
 				</div>
-				<h1>
-					Brewms Near <span className='location-text'>{location}</span>
-				</h1>
-				<div className='search-link'>
+				<div className='header-text-container'>
+					<p className='header-text'>brewms near</p>
+					<p className='location-text'>{location}</p>
+				</div>
+				<div className='search-link-container'>
 					<Link to='/'>
 						<FaSearch className='search-icon' />
 					</Link>
