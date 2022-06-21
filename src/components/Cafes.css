@@ -7,6 +7,7 @@
 	color: darkgoldenrod;
 }
 
+.filters-component,
 .search-link {
 	display: flex;
 	align-items: center;
@@ -15,7 +16,7 @@
 
 .search-link a:hover {
 	background-color: transparent;
-    color: darkgoldenrod;
+	color: darkgoldenrod;
 }
 
 .search-icon {
@@ -42,9 +43,10 @@
 	align-items: flex-start;
 	height: 400px;
 	width: 800px;
-	margin: 0 20px;
+    padding: 0 10px;
 	z-index: 1;
 	line-height: 1.25;
+	overflow-wrap: break-word;
 }
 
 .result-name {

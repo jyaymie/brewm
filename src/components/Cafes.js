@@ -11,8 +11,10 @@ function Cafes({ location, cafes, setCafes }) {
 
 	return (
 		<div>
-			<Filters location={location} setCafes={setCafes} />
 			<header className='cafes-header'>
+				<div className='filters-component'>
+					<Filters location={location} setCafes={setCafes} />
+				</div>
 				<h1>
 					Brewms Near <span className='location-text'>{location}</span>
 				</h1>

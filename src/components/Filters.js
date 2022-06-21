@@ -1,14 +1,9 @@
-import { Dropdown } from 'bootstrap';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import './Filters.css';
 
 function Filters({ location, setCafes }) {
-	// Display the filters with a dropdown button.
 	const [isOpen, setIsOpen] = useState(false);
-
-	const handleDropdownDisplay = () => {
-		setIsOpen(!isOpen);
-	};
 
 	const [is1$Checked, setIs1$Checked] = useState(false);
 	const [is2$Checked, setIs2$Checked] = useState(false);
@@ -18,7 +13,7 @@ function Filters({ location, setCafes }) {
 
 	const [url, setUrl] = useState(baseUrl);
 
-	const handleFilterSubmit = (e) => {
+	const handleApplyFilters = (e) => {
 		e.preventDefault();
 		let formattedUrl = '';
 		let price1 = '';
@@ -51,6 +46,7 @@ function Filters({ location, setCafes }) {
 			formattedUrl = baseUrl;
 		}
 		setUrl(formattedUrl);
+		setIsOpen(!isOpen);
 	};
 
 	useEffect(() => {
@@ -72,10 +68,56 @@ function Filters({ location, setCafes }) {
 
 	return (
 		<div>
-			<button type='button' onClick={handleDropdownDisplay}>
+			<DropdownButton
+				title='Filters'
+				autoClose='outside'
+				show={isOpen}
+				onToggle={() => {
+					setIsOpen(!isOpen);
+				}}>
+				<Dropdown.ItemText>Price</Dropdown.ItemText>
+				<Dropdown.Item onClick={() => setIs1$Checked(!is1$Checked)}>
+					<input
+						type='checkbox'
+						name='price-1$'
+						id='price-1$'
+						checked={is1$Checked}
+						readOnly
+					/>
+					<label htmlFor='price-1$'>$</label>
+				</Dropdown.Item>
+				<Dropdown.Item onClick={() => setIs2$Checked(!is2$Checked)}>
+					<input
+						type='checkbox'
+						name='price-2$'
+						id='price-2$'
+						checked={is2$Checked}
+						readOnly
+					/>
+					<label htmlFor='price-2$'>$$</label>
+				</Dropdown.Item>
+				<Dropdown.Item onClick={() => setIs3$Checked(!is3$Checked)}>
+					<input
+						type='checkbox'
+						name='price-3$'
+						id='price-3$'
+						checked={is3$Checked}
+						readOnly
+					/>
+					<label htmlFor='price-3$'>$$$</label>
+				</Dropdown.Item>
+				<Dropdown.Item>
+					<button onClick={handleApplyFilters}>Apply</button>
+				</Dropdown.Item>
+			</DropdownButton>
+
+			{/* <button
+				type='button'
+				className='dropdown-button'
+				onClick={handleDropdownDisplay}>
 				Filters
-			</button>
-			<form
+			</button> */}
+			{/* <form
 				onSubmit={handleFilterSubmit}
 				className={isOpen ? 'form-display' : 'form-display-none'}>
 				<p>Price</p>
@@ -107,7 +149,7 @@ function Filters({ location, setCafes }) {
 				<button type='submit' onClick={handleDropdownDisplay}>
 					Apply
 				</button>
-			</form>
+			</form> */}
 		</div>
 	);
 }
