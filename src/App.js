@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Search from './components/Search';
 import Cafes from './components/Cafes';
 import CafeDetails from './components/CafeDetails';
@@ -14,7 +14,7 @@ function App() {
 		if (location) {
 			fetch(
 				// Fetch 10 cafes that are within a ~10-mile radius of the submitted location.
-				// Use Heroku as a workaround for CORS errors. (Thank you, Esin Saridubak!)
+				// Use Heroku as a workaround for CORS errors. (Thank you, Esin!)
 				`https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10&sort_by=distance`,
 				{
 					method: 'GET',

@@ -7,8 +7,9 @@ function CafeLocation({ cafe }) {
 				<p className='address'>{cafe.location.display_address[0]}</p>
 				<p className='address'>{cafe.location.display_address[1]}</p>
 				<p className='address'>{cafe.location.display_address[2]}</p>
+				<p className='address'>{cafe.location.display_address[3]}</p>
 			</div>
-			<br/>
+			<br />
 			{/* Redirect users to Google Maps with the cafe's location mapped. */}
 			<a
 				href={`https://maps.google.com?q=${cafe.coordinates.latitude},${cafe.coordinates.longitude}`}

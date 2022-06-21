@@ -1,3 +1,27 @@
+.details-header {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 100px 1fr 100px;
+	padding: 10px;
+}
+
+h1,
+.back-link-text {
+	margin: 0;
+}
+
+.back-link {
+	display: flex;
+	align-items: center;
+	font-size: 1.5rem;
+}
+
+.back-link a:hover {
+	display: inline-block;
+	background-color: black;
+	color: white;
+}
+
 .details-text {
 	display: grid;
 	grid-template-rows: 1fr;

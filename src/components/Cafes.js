@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import Filters from './Filters';
 
-function Cafes({ location, cafes, setCafes }) {
-	// Convert meters to miles.
-	const getMiles = (meters) => {
-		return meters * 0.000621371;
-	};
+// Convert meters to miles.
+const getMiles = (meters) => {
+	return meters * 0.000621371;
+};
 
+function Cafes({ location, cafes, setCafes }) {
 	return (
 		<div>
 			<header className='cafes-header'>

@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    text-align: center;
+	text-align: center;
 }
 
 a,
@@ -28,3 +28,7 @@ a:visited:hover {
 	background-color: black;
 	color: white;
 }
+
+/* ---------------------------------------- DESKTOP STYLES */
+
+/* @media screen and (min-width: 768px) {} */

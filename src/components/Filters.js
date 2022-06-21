@@ -10,6 +10,7 @@ function Filters({ location, setCafes }) {
 	const [is3$Checked, setIs3$Checked] = useState(false);
 
 	const baseUrl = `https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10&sort_by=distance`;
+    // &price=1,2,3
 
 	const [url, setUrl] = useState(baseUrl);
 

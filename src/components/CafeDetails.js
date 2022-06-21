@@ -18,6 +18,7 @@ function CafeDetails() {
 			},
 		],
 	});
+
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -44,7 +45,12 @@ function CafeDetails() {
 
 	return (
 		<div className='details-container'>
-			<header>
+			<header className='details-header'>
+				<div className='back-link'>
+					<Link to='/cafes'>
+						<p className="back-link-text">Back</p>
+					</Link>
+				</div>
 				<h1>{cafe.name}</h1>
 			</header>
 			<section>
