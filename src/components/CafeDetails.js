@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import CafePhotos from './CafePhotos';
 import CafeLocation from './CafeLocation';
 import CafeHours from './CafeHours';
+import CafeContact from './CafeContact';
 
 function CafeDetails() {
 	const [cafe, setCafe] = useState({
@@ -12,11 +13,6 @@ function CafeDetails() {
 		},
 		coordinates: {},
 		photos: [],
-		hours: [
-			{
-				open: [],
-			},
-		],
 	});
 
 	const { id } = useParams();
@@ -48,10 +44,11 @@ function CafeDetails() {
 			<header className='details-header'>
 				<div className='back-link'>
 					<Link to='/cafes'>
-						<p className="back-link-text">Back</p>
+						<p className='back-link-text'>Back</p>
 					</Link>
 				</div>
-				<h1>{cafe.name}</h1>
+				<h2>{cafe.name}</h2>
+				<CafeContact cafe={cafe} />
 			</header>
 			<section>
 				<div>

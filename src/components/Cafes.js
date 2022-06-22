@@ -16,8 +16,8 @@ function Cafes({ location, cafes, setCafes }) {
 					<Filters location={location} setCafes={setCafes} />
 				</div>
 				<div className='header-text-container'>
-					<p className='header-text'>brewms near</p>
-					<p className='location-text'>{location}</p>
+					<h2 className='header-text'>brewms near</h2>
+					<h2 className='location-text'>{location}</h2>
 				</div>
 				<div className='search-link-container'>
 					<Link to='/'>

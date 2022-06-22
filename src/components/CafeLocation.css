@@ -2,10 +2,25 @@
 .address {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	justify-content: center;
+	align-items: center;
 }
 
-.address,
+.address {
+	margin: 0 auto;
+}
+
 .map-link {
-	margin: 0 10px;
+	margin-bottom: 20px;
+}
+
+/* -------------------------------------------------- DESKTOP STYLES */
+
+@media screen and (min-width: 768px) {
+	.location-container,
+	.address {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
 }

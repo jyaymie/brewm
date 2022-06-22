@@ -21,24 +21,28 @@ const getFormattedTime = (fourDigitTime) => {
 };
 
 function CafeHours({ cafe }) {
-	return (
-		<div>
-			<div className='business-hours-container'>
-				{cafe.hours[0].open.map((businessHours) => (
-					<p className='business-hours' key={businessHours.day}>
-						{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
-							businessHours.start
-						)} - ${getFormattedTime(businessHours.end)}`}
-					</p>
-				))}
+
+	if (!cafe.hours) {
+		return (
+			<p>
+				<em>No business hours available.</em>
+			</p>
+		);
+	} else {
+		return (
+			<div>
+				<div className='business-hours-container'>
+					{cafe.hours[0].open.map((businessHours) => (
+						<p className='business-hours' key={businessHours.day}>
+							{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
+								businessHours.start
+							)} - ${getFormattedTime(businessHours.end)}`}
+						</p>
+					))}
+				</div>
 			</div>
-            <br/>
-			<a href={`tel:${cafe.phone}`} className='call-link'>
-				<strong>Call 📞</strong>
-			</a>
-			<p className="phone-number">{cafe.display_phone}</p>
-		</div>
-	);
+		);
+	}
 }
 
 export default CafeHours;

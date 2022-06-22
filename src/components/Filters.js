@@ -111,46 +111,6 @@ function Filters({ location, setCafes }) {
 					<button onClick={handleApplyFilters}>Apply</button>
 				</Dropdown.Item>
 			</DropdownButton>
-
-			{/* <button
-				type='button'
-				className='dropdown-button'
-				onClick={handleDropdownDisplay}>
-				Filters
-			</button> */}
-			{/* <form
-				onSubmit={handleFilterSubmit}
-				className={isOpen ? 'form-display' : 'form-display-none'}>
-				<p>Price</p>
-				<input
-					type='checkbox'
-					name='price-1$'
-					id='price-1$'
-					checked={is1$Checked}
-					onChange={() => setIs1$Checked(!is1$Checked)}
-				/>
-				<label htmlFor='price-1$'>$</label>
-				<input
-					type='checkbox'
-					name='price-2$'
-					id='price-2$'
-					checked={is2$Checked}
-					onChange={() => setIs2$Checked(!is2$Checked)}
-				/>
-				<label htmlFor='price-2$'>$$</label>
-				<input
-					type='checkbox'
-					name='price-3$'
-					id='price-3$'
-					checked={is3$Checked}
-					onChange={() => setIs3$Checked(!is3$Checked)}
-				/>
-				<label htmlFor='price-3$'>$$$</label>
-				<br />
-				<button type='submit' onClick={handleDropdownDisplay}>
-					Apply
-				</button>
-			</form> */}
 		</div>
 	);
 }
