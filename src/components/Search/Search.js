@@ -1,29 +1,31 @@
 import './Search.css';
 // Photo by <a href="https://unsplash.com/@jckbck?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jakub Dziubak</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  import backgroundImage from '../assets/search-background.jpg';
+// import backgroundImage from '../assets/search-background.jpg';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+// import { useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 
 function Search({ location, setLocation }) {
 	const [locationText, setLocationText] = useState(location);
-	let navigate = useNavigate();
+	// let navigate = useNavigate();
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 		setLocation(locationText);
 		// Programmatically navigate to the search results.
 		// https://reactrouter.com/docs/en/v6/hooks/use-navigate
-		navigate('cafes');
+		// navigate('cafes');
 	};
 
+	// For the .search-container div: style={{ backgroundImage: `url(${backgroundImage})` }}
 	return (
-		<div
-			className='search-container'
-			style={{ backgroundImage: `url(${backgroundImage})` }}>
-			<header>
+		<div className='search-container'>
+			{/* <header>
 				<h1>brewm</h1>
-			</header>
+			</header> */}
+			{/* Render a form with Bootstrap styling. */}
 			<Form onSubmit={handleSearchSubmit} className='search-form'>
 				<Form.Group>
 					<Form.Label htmlFor='location' className='search-label'>
@@ -33,15 +35,16 @@ function Search({ location, setLocation }) {
 						type='text'
 						id='location'
 						placeholder='san diego, ca'
+						value={locationText}
 						onChange={(e) => {
 							setLocationText(e.target.value);
 						}}
-						value={locationText}
 					/>
 				</Form.Group>
-				<Button type='submit' variant='primary' className='search-submit'>
-					Submit
+				<Button type='submit' className='search-button' variant='primary'>
+					Search
 				</Button>
+				
 			</Form>
 		</div>
 	);

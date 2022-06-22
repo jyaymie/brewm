@@ -1,10 +1,10 @@
 import './CafeDetails.css';
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import CafePhotos from './CafePhotos';
-import CafeLocation from './CafeLocation';
-import CafeHours from './CafeHours';
-import CafeContact from './CafeContact';
+import CafePhotos from '../CafePhotos/CafePhotos';
+import CafeLocation from '../CafeLocation/CafeLocation';
+import CafeHours from '../CafeHours/CafeHours';
+import CafeContact from '../CafeContact/CafeContact';
 
 function CafeDetails() {
 	const [cafe, setCafe] = useState({
