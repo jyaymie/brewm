@@ -1,7 +1,6 @@
 import './Cafes.css';
 import { Link } from 'react-router-dom';
 // import { FaSearch } from 'react-icons/fa';
-// import Filters from '../Filters/Filters';
 
 // Convert default meters to miles.
 // Round to the hundredths place.
@@ -9,25 +8,25 @@ const getMiles = (meters) => {
 	return (meters * 0.000621371).toFixed(2);
 };
 
-function Cafes({ location, cafes, setCafes }) {
+function Cafes({ cafes, requestedSearch, cafeResults }) {
+	// Show an error message if the user did not submit a query.
+	// if (!requestedSearch) {
+	// 	return (
+	// 		<div>Oops, you must enter a location! Click <Link to='/'>here</Link> to go back.</div>
+	// 	)
+	// }
+
+	// While results are loading, return null.
+	if (!cafeResults) {
+		return null;
+	}
+
+	// When results have loaded, show the results.
 	return (
 		<div>
-			<header className='cafes-header'>
-				{/* <div className='filters-container'> */}
-				{/* <Filters location={location} setCafes={setCafes} /> */}
-				{/* </div> */}
-				{/* <div className='header-text-container'>
-					<h2 className='header-text'>brewms near</h2>
-					<h2 className='location-text'>{location}</h2>
-				</div>
-				<div className='search-link-container'>
-					<Link to='/'>
-						<FaSearch className='search-icon' />
-					</Link>
-				</div> */}
-			</header>
+			<header className='cafes-header'></header>
 			<section className='results-container'>
-				{/* Make each result a link to the result's details page. */}
+				{/* Make each result a link to the selected cafe's details page. */}
 				{cafes.map((cafe) => (
 					<Link to={`cafe-details/${cafe.id}`} key={cafe.id}>
 						<div className='result'>

@@ -1,8 +1,9 @@
-import { DropdownButton, Dropdown } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
 import './Filters.css';
+import { useState, useEffect } from 'react';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
-function Filters({ location, setCafes }) {
+function Filters({ location, cafes, setCafes }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const [is1$Checked, setIs1$Checked] = useState(false);
@@ -68,7 +69,7 @@ function Filters({ location, setCafes }) {
 		}
 	}, [url]);
 
-	if (location) {
+	if (cafes.length) {
 		return (
 			<div>
 				{/* Render a dropdown with Bootstrap styling. */}

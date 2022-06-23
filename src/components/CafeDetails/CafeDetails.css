@@ -1,4 +1,4 @@
-.details-header {
+/* .details-header {
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: 1fr 2fr 1fr;
@@ -26,25 +26,26 @@ h2 {
 	display: inline-block;
 	background-color: black;
 	color: white;
-}
+} */
 
 .details-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	text-align: center;
 }
 
 /* -------------------------------------------------- DESKTOP STYLES */
 
 @media screen and (min-width: 768px) {
 
-.details-text {
+/* .details-text {
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
 	padding: 10px;
-}
+} */
 
 }

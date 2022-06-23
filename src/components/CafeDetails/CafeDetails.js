@@ -42,21 +42,24 @@ function CafeDetails() {
 	return (
 		<div className='details-container'>
 			<header className='details-header'>
-				<div className='back-link'>
-					<Link to='/cafes'>
+				{/* <div className='back-link'>
+					<Link to='/'>
 						<p className='back-link-text'>Back</p>
 					</Link>
-				</div>
+				</div> */}
 				<h2>{cafe.name}</h2>
-				<CafeContact cafe={cafe} />
 			</header>
 			<section>
 				<div>
 					<CafePhotos cafe={cafe} />
+					<br/>
 				</div>
 				<div className='details-text'>
 					<CafeLocation cafe={cafe} />
+					<br/>
 					<CafeHours cafe={cafe} />
+					<br/>
+					<CafeContact cafe={cafe} />
 				</div>
 			</section>
 		</div>

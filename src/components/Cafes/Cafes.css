@@ -1,4 +1,4 @@
-.cafes-header {
+/* .cafes-header {
 	display: flex;
 	justify-content: space-between;
 	margin: 10px 0;
@@ -45,7 +45,7 @@
 .search-icon {
 	color: black;
 	font-size: 1.5rem;
-}
+} */
 
 .results-container {
 	display: flex;
@@ -55,7 +55,6 @@
 
 .result {
 	height: 25vh;
-	overflow: hidden;
 }
 
 .result-text {

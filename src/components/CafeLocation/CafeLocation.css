@@ -1,26 +1,9 @@
-.location-container,
 .address {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.address {
-	margin: 0 auto;
-}
-
-.map-link {
-	margin-bottom: 20px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /* -------------------------------------------------- DESKTOP STYLES */
 
 @media screen and (min-width: 768px) {
-	.location-container,
-	.address {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-	}
 }

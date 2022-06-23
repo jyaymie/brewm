@@ -21,7 +21,6 @@ const getFormattedTime = (fourDigitTime) => {
 };
 
 function CafeHours({ cafe }) {
-
 	if (!cafe.hours) {
 		return (
 			<p>

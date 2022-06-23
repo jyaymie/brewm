@@ -1,8 +1,4 @@
-.business-hours-container {
-	display: flex;
-	flex-direction: column;
-}
-
-.business-hours, .call-link, .phone-number {
-	margin: 0 10px;
+.business-hours {
+	margin-top: 0;
+	margin-bottom: 0;
 }

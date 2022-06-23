@@ -3,14 +3,14 @@ import './CafeContact.css';
 function CafeContact({ cafe }) {
 	if (!cafe.phone) {
 		return (
-			<p className="no-phone-number-text">
+			<p className='no-phone-number-text'>
 				<em>No phone number available.</em>
 			</p>
 		);
 	} else {
 		return (
-			<div className="phone-number-text">
-				<a href={`tel:${cafe.phone}`} className='call-link'>
+			<div className='phone-number-text'>
+				<a href={`tel:${cafe.phone}`} className='phone-number-link'>
 					<strong>Call 📞</strong>
 				</a>
 				<p className='phone-number'>{cafe.display_phone}</p>
