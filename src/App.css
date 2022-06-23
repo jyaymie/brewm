@@ -17,6 +17,7 @@ header {
 	text-align: center;
 }
 
+.app-link,
 a,
 a:visited {
 	color: black;
@@ -28,7 +29,3 @@ a:visited:hover {
 	background-color: black;
 	color: white;
 }
-
-/* ---------------------------------------- DESKTOP STYLES */
-
-/* @media screen and (min-width: 768px) {} */

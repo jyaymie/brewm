@@ -9,7 +9,7 @@ function App() {
 		<div>
 			<header>
 				<h1>
-					<Link to='/'>brewm</Link>
+					<Link to='/' className="app-link">brewm</Link>
 				</h1>
 			</header>
 			<main>

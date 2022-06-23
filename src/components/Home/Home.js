@@ -5,25 +5,28 @@ import FiltersNav from '../FiltersNav/FiltersNav';
 import Cafes from '../Cafes/Cafes';
 
 function Home() {
-	// use setSearchParams to track the search query entered by the user in the Search form.
+	// Retain state in browser refreshes.
+	// Track the search query entered by the user in the Search form.
 	const [searchParams, setSearchParams] = useSearchParams();
-	// Pull the query out of the URL.
-	const requestedSearch = searchParams.get('location');
-	// Handle API results.
+	const requestedSearch = searchParams.get('query');
 	const [cafeResults, setCafeResults] = useState(null);
 
 	const [location, setLocation] = useState('');
-	// Use setCafes when data is retrieved in the following useEffect.
 	const [cafes, setCafes] = useState([]);
 
+	const [priceFilter, setPriceFilter] = useState('');
+
 	useEffect(() => {
-		console.log(searchParams.get('query'));
 		setLocation(requestedSearch);
+		console.log(priceFilter);
 		if (location) {
+			let url = `https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=15&sort_by=distance`;
+			url = priceFilter ? url + priceFilter : url;
+
 			fetch(
-				// Fetch 10 cafes that are within a ~10-mile radius of the submitted location.
+				// Fetch 15 cafes that are within a ~10-mile radius of the submitted location and sorted by distance.
 				// Use Heroku as a workaround for CORS errors. (Thank you, Esin!)
-				`https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10&sort_by=distance`,
+				url,
 				{
 					method: 'GET',
 					headers: {
@@ -33,7 +36,7 @@ function Home() {
 			)
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data.businesses);
+					console.log('Success!', data.businesses);
 					setCafes(data.businesses);
 					setCafeResults(data.businesses);
 				})
@@ -42,22 +45,22 @@ function Home() {
 				});
 		}
 		// Trigger useEffect when a new location is submitted.
-	}, [location, requestedSearch]);
+	}, [location, priceFilter]);
 
 	return (
 		<div>
 			<Search
 				location={location}
 				setLocation={setLocation}
-				searchParams={searchParams}
 				setSearchParams={setSearchParams}
 			/>
-			<FiltersNav location={location} cafes={cafes} setCafes={setCafes} />
-			<Cafes
+			<FiltersNav
+				location={location}
 				cafes={cafes}
-				requestedSearch={requestedSearch}
-				cafeResults={cafeResults}
+				setSearchParams={setSearchParams}
+				setPriceFilter={setPriceFilter}
 			/>
+			<Cafes cafes={cafes} cafeResults={cafeResults} />
 		</div>
 	);
 }

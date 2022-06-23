@@ -1,25 +1,30 @@
+import './FiltersNav.css';
 import { useState, useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
+
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function FiltersNav({ location, cafes, setCafes }) {
+function FiltersNav({ location, cafes, setSearchParams, setPriceFilter }) {
+	// Create a state for the Price dropdown.
 	const [isOpen, setIsOpen] = useState(false);
 
+	// Create states for the Price checkboxes.
 	const [is1$Checked, setIs1$Checked] = useState(false);
 	const [is2$Checked, setIs2$Checked] = useState(false);
 	const [is3$Checked, setIs3$Checked] = useState(false);
+	const [is4$Checked, setIs4$Checked] = useState(false);
 
-	const baseUrl = `https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=10&sort_by=distance`;
+	// const handleFilterByOpen = () => {
+	// 	setUrl(`${baseUrl}&open_now`);
+	// };
 
-	const [url, setUrl] = useState(baseUrl);
-
-	const handleApplyFilters = (e) => {
+	const handleFilterByPrice = (e) => {
 		e.preventDefault();
-		let formattedUrl = '';
 		let price1 = '';
 		let price2 = '';
 		let price3 = '';
+		let price4 = '';
 
 		if (is1$Checked) {
 			price1 = '1';
@@ -27,66 +32,61 @@ function FiltersNav({ location, cafes, setCafes }) {
 		if (
 			(is1$Checked && is2$Checked) ||
 			(is1$Checked && is3$Checked) ||
-			(is1$Checked && is2$Checked && is3$Checked)
+			(is1$Checked && is4$Checked) ||
+			(is1$Checked && is2$Checked && is3$Checked) ||
+			(is1$Checked && is2$Checked && is4$Checked) ||
+			(is1$Checked && is3$Checked && is4$Checked) ||
+			(is1$Checked && is2$Checked && is3$Checked && is4$Checked)
 		) {
 			price1 = '1,';
 		}
 		if (is2$Checked) {
 			price2 = '2';
 		}
-		if (is2$Checked && is3$Checked) {
+		if (
+			(is2$Checked && is3$Checked) ||
+			(is2$Checked && is4$Checked) ||
+			(is2$Checked && is3$Checked && is4$Checked)
+		) {
 			price2 = '2,';
 		}
 		if (is3$Checked) {
 			price3 = '3';
 		}
-
-		formattedUrl = `${baseUrl}&price=${price1}${price2}${price3}`;
-
-		if (!is1$Checked && !is2$Checked && !is3$Checked) {
-			formattedUrl = baseUrl;
+		if (is3$Checked && is4$Checked) {
+			price3 = '3,';
 		}
-		setUrl(formattedUrl);
+		if (is4$Checked) {
+			price4 = '4';
+		}
+
+		setPriceFilter(`&price=${price1}${price2}${price3}${price4}`);
+		setSearchParams({
+			query: `${location}&${price1}${price2}${price3}${price4}`,
+		});
 		setIsOpen(!isOpen);
 	};
 
-	useEffect(() => {
-		if (location) {
-			fetch(url, {
-				method: 'GET',
-				headers: {
-					Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`,
-				},
-			})
-				.then((res) => res.json())
-				.then((data) => {
-					console.log(data.businesses);
-					setCafes(data.businesses);
-				})
-				.catch((err) => {
-					console.log('Uh-oh, something went wrong...', err);
-				});
-		}
-	}, [url]);
-
+	// When results have loaded, show the navigation bar.
 	if (cafes.length) {
 		return (
 			// Render a navigation bar using Bootstrap styling.
-			<div>
-				<Navbar bg='light' expand='sm'>
-					{/* <Container> */}
+			<div className='navbar-container'>
+				<Navbar expand='sm'>
 					<Navbar.Brand>Filters</Navbar.Brand>
-					<Navbar.Toggle aria-controls='basic-navbar-nav' />
-					<Navbar.Collapse id='basic-navbar-nav'>
-						<Nav className='me-auto'>
+					<Navbar.Toggle />
+					<Navbar.Collapse>
+						<Nav>
+							{/* <Nav.Link href='#' onClick={handleFilterByOpen}>
+								Open Now
+							</Nav.Link> */}
 							<NavDropdown
 								title='Price'
 								autoClose='outside'
 								show={isOpen}
 								onToggle={() => {
 									setIsOpen(!isOpen);
-								}}
-								id='basic-nav-dropdown'>
+								}}>
 								<NavDropdown.Item onClick={() => setIs1$Checked(!is1$Checked)}>
 									<input
 										type='checkbox'
@@ -97,7 +97,6 @@ function FiltersNav({ location, cafes, setCafes }) {
 									/>
 									<label htmlFor='price-1$'>$</label>
 								</NavDropdown.Item>
-
 								<NavDropdown.Item onClick={() => setIs2$Checked(!is2$Checked)}>
 									<input
 										type='checkbox'
@@ -118,14 +117,23 @@ function FiltersNav({ location, cafes, setCafes }) {
 									/>
 									<label htmlFor='price-3$'>$$$</label>
 								</NavDropdown.Item>
+								<NavDropdown.Item onClick={() => setIs4$Checked(!is4$Checked)}>
+									<input
+										type='checkbox'
+										name='price-4$'
+										id='price-4$'
+										checked={is4$Checked}
+										readOnly
+									/>
+									<label htmlFor='price-4$'>$$$$</label>
+								</NavDropdown.Item>
 								<NavDropdown.Divider />
-								<NavDropdown.Item>
-									<button onClick={handleApplyFilters}>Apply</button>
+								<NavDropdown.Item onClick={handleFilterByPrice}>
+									Apply
 								</NavDropdown.Item>
 							</NavDropdown>
 						</Nav>
 					</Navbar.Collapse>
-					{/* </Container> */}
 				</Navbar>
 			</div>
 		);
