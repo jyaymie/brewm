@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Search from '../Search/Search';
-import FilterNav from '../FilterNav/FilterNav';
-import Filters from '../Filters/Filters';
+import FiltersNav from '../FiltersNav/FiltersNav';
 import Cafes from '../Cafes/Cafes';
 
 function Home() {
@@ -53,8 +52,7 @@ function Home() {
 				searchParams={searchParams}
 				setSearchParams={setSearchParams}
 			/>
-			<FilterNav />
-			<Filters location={location} cafes={cafes} setCafes={setCafes} />
+			<FiltersNav location={location} cafes={cafes} setCafes={setCafes} />
 			<Cafes
 				cafes={cafes}
 				requestedSearch={requestedSearch}
