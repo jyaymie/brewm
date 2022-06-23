@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function FiltersNav({ location, cafes, setSearchParams, setPriceFilter }) {
+function FiltersNav({ location, cafes, searchParams, setSearchParams, setPriceFilter }) {
 	// Create a state for the Price dropdown.
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -60,9 +60,9 @@ function FiltersNav({ location, cafes, setSearchParams, setPriceFilter }) {
 			price4 = '4';
 		}
 
-		setPriceFilter(`&price=${price1}${price2}${price3}${price4}`);
-		setSearchParams({
-			query: `${location}&${price1}${price2}${price3}${price4}`,
+		setPriceFilter(`${price1}${price2}${price3}${price4}`);
+		setSearchParams({...searchParams,
+			price: `${location}&${price1}${price2}${price3}${price4}`,
 		});
 		setIsOpen(!isOpen);
 	};

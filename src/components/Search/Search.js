@@ -3,13 +3,13 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function Search({ location, setLocation, setSearchParams }) {
+function Search({ location, setLocation, searchParams, setSearchParams }) {
 	const [locationText, setLocationText] = useState(location);
 
 	const handleSearchSubmit = (event) => {
 		event.preventDefault();
 		setLocation(locationText);
-		setSearchParams({ query: locationText });
+		setSearchParams({ ...searchParams, location: locationText });
 	};
 
 	return (
