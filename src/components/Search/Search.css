@@ -1,0 +1,19 @@
+.search-container {
+	display: flex;
+	justify-content: center;
+	height: 15vh;
+}
+
+.search-form {
+	display: flex;
+	align-items: center;
+}
+
+.search-label {
+	margin-right: 5px;
+	margin-bottom: 0;
+}
+
+.search-button {
+	margin-left: 5px;
+}

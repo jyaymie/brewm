@@ -1,0 +1,24 @@
+.navbar-container {
+	padding: 0 10px;
+	background-color: rgb(221, 246, 254);
+}
+
+/* .navbar-brand is a Bootstrap-assigned class. */
+.navbar-brand {
+	font-size: 1rem;
+}
+
+/* .dropdown-toggle is a Bootstrap-assigned class. */
+.dropdown-toggle {
+	text-align: left;
+}
+
+.dropdown-toggle:hover {
+	background-color: transparent;
+	text-decoration: wavy underline;
+}
+
+/* .dropdown-item is a Bootstrap-assigned class. */
+.dropdown-item label {
+	margin-left: 5px;
+}

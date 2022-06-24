@@ -1,0 +1,41 @@
+.no-photo-container {
+	display: flex;
+	justify-content: center;
+}
+
+.one-photo-container {
+	display: flex;
+	justify-content: center;
+	height: 40vh;
+}
+
+.two-photos-container {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	padding: 10px;
+}
+
+.three-photos-container {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+}
+
+.photo {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+/* -------------------------------------------------- DESKTOP STYLES */
+
+@media screen and (min-width: 768px) {
+	.two-photos-container,
+	.three-photos-container {
+		max-width: 1000px;
+	}
+}

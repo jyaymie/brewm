@@ -1,0 +1,95 @@
+.results-container {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+}
+
+.result-link,
+.result-link:visited {
+	color: white;
+}
+
+.result-text:hover {
+	font-style: italic;
+}
+
+.result {
+	height: 25vh;
+	border-bottom: 0.25px solid white;
+}
+
+.result-text {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	overflow-wrap: break-word;
+	height: 25vh;
+	width: 100vw;
+	padding: 0 10px;
+	z-index: 1;
+	line-height: 1.25;
+}
+
+.result-name {
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+
+.result-distance {
+	font-size: 1rem;
+	margin: 0 1px;
+}
+
+.result-image {
+	/* Set a background-color if no backgroundImage is available. */
+	background-color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	filter: grayscale(1);
+}
+
+/* Add a dark overlay to each cafe image. */
+.result-image:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+/* -------------------------------------------------- DESKTOP STYLES */
+
+@media screen and (min-width: 768px) {
+	.result-text {
+		color: black;
+	}
+
+	.result-text:hover {
+		font-style: normal;
+		color: white;
+	}
+
+	.result-name {
+		font-size: 4rem;
+	}
+
+	.result-distance {
+		font-size: 1.5rem;
+		margin: 0 3px;
+	}
+
+	.result-image {
+		opacity: 40%;
+	}
+
+	.result-image:before {
+		background: rgba(0, 0, 0, 0);
+	}
+}
