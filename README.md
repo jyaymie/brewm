@@ -2,20 +2,18 @@
 
 ## ☕️ Project Description
 
-Brewm helps users find nearby spaces to get their caffeine fix as they work and study. Based on the entered location, the app will display a list of places categorized as cafes or spots serving coffee or tea. These results are conveniently sorted by distance and can be filtered by price. (More filters to come!) Each cafe is linked to its own page of available information, including photos, an address, business hours, and contact information.
+Brewm helps users find nearby spaces to get their caffeine fix as they work and study. Based on the entered location, the app will display a list of places categorized as cafes or spots serving coffee or tea. These results are conveniently sorted by distance and can be filtered by price. (Additional filters to come!) Each cafe is linked to its own page of available information, including photos, an address, business hours, and contact information.
 
 Have a look around: https://brewm.netlify.app
 
-We love visuals!
-<br/>
 <img src="./src/assets/brewm-mobile-screenshots.png" alt="Brewm mobile screenshots">
 <img src="./src/assets/brewm-desktop-screenshots.png" alt="Brewm desktop screenshots">
 
-The neat background image of the cup of jo was created by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/s/photos/coffee-minimal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.
+P.S. The neat background image of the cup of jo was created by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/s/photos/coffee-minimal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.
 
 ## 👩‍💻 Technologies
 
-- This is a front-end React application that utilizes JSX, React Router, and React-Bootstrap.
+- This is a front-end React application that utilizes JSX, CSS, React Router, and React-Bootstrap.
 - Data was fetched from the Yelp Fusion API through a Heroku proxy server, which served as a workaround for CORS errors.
 
 ## 🛠 Installation
