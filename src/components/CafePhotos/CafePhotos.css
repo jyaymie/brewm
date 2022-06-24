@@ -30,12 +30,3 @@
 	width: 100%;
 	object-fit: cover;
 }
-
-/* -------------------------------------------------- DESKTOP STYLES */
-
-@media screen and (min-width: 768px) {
-	.two-photos-container,
-	.three-photos-container {
-		max-width: 1000px;
-	}
-}

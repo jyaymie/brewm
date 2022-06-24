@@ -3,9 +3,14 @@ import './CafeLocation.css';
 function CafeLocation({ cafe }) {
 	if (!cafe.location) {
 		return (
-			<p>
-				<em>No address available.</em>
-			</p>
+			<section>
+				<h6>
+					<strong>Address</strong>
+				</h6>
+				<p>
+					<em>No address available.</em>
+				</p>
+			</section>
 		);
 	} else {
 		return (

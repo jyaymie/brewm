@@ -1,4 +1,5 @@
 import './Home.css';
+import backgroundImage from '../../assets/cup-of-brew.jpg';
 import { useState, useEffect, useReducer } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Search from '../Search/Search';
@@ -11,7 +12,7 @@ function Home() {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const requestedLocation = searchParams.get('location');
 	const requestedPrice = searchParams.get('price');
-	const [cafeResults, setCafeResults] = useState(null);
+	const [cafeResults, setCafeResults] = useState('');
 	const [priceFilter, setPriceFilter] = useState('');
 
 	const [location, setLocation] = useState('');
@@ -38,9 +39,9 @@ function Home() {
 				},
 			})
 				.then((res) => {
-					if (res.status === 404) {
+					if (res.status === 400) {
 						setError(
-							`Hm...we couldn't find any brewms near ${location}. Let's do another search.`
+							`Hm...we couldn't find any brewms near "${location}". Let's do another search.`
 						);
 						setLoading(false);
 						return;
@@ -55,15 +56,31 @@ function Home() {
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log('Hm, something went wrong...', err);
-					setError('Uh-oh! Something went wrong. Please chai again later.');
+					console.log('An error! What could this bean...', err);
 					setLoading(false);
 				});
 		}
 	}, [location, priceFilter]);
 
+	// Render a background image on the initial load of the application.
+	if (!cafes.length) {
+		return (
+			<div
+				className='home-container'
+				style={{ backgroundImage: `url(${backgroundImage})` }}>
+				<Search
+					location={location}
+					setLocation={setLocation}
+					searchParams={searchParams}
+					setSearchParams={setSearchParams}
+				/>
+				{loading && 'Finding the brewms!'}
+				{error && error}
+			</div>
+		);
+	}
 	return (
-		<div className="home-container">
+		<div className='home-container'>
 			<Search
 				location={location}
 				setLocation={setLocation}
@@ -78,7 +95,7 @@ function Home() {
 				setPriceFilter={setPriceFilter}
 			/>
 			<Cafes cafes={cafes} cafeResults={cafeResults} />
-			{loading && 'Finding the brewms!'}
+			{loading && 'Finding your brewms!'}
 			{error && error}
 		</div>
 	);

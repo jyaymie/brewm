@@ -3,9 +3,14 @@ import './CafeContact.css';
 function CafeContact({ cafe }) {
 	if (!cafe.phone) {
 		return (
-			<p>
-				<em>No phone number available.</em>
-			</p>
+			<section>
+				<h6>
+					<strong>Contact</strong>
+				</h6>
+				<p>
+					<em>No phone number available.</em>
+				</p>
+			</section>
 		);
 	} else {
 		return (

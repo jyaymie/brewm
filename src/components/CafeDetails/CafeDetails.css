@@ -1,5 +1,8 @@
 .cafe-details-container {
 	text-align: center;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgb(216, 223, 221);
 }
 
 .details-text {
