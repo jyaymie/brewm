@@ -9,7 +9,10 @@ function Search({ location, setLocation, searchParams, setSearchParams }) {
 	const handleSearchSubmit = (event) => {
 		event.preventDefault();
 		setLocation(locationText);
-		setSearchParams({ ...searchParams, location: locationText });
+		setSearchParams({
+			location: locationText,
+			price: searchParams.get('price'),
+		});
 	};
 
 	return (

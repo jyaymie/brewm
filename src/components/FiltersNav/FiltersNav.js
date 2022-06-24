@@ -1,11 +1,17 @@
 import './FiltersNav.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function FiltersNav({ location, cafes, searchParams, setSearchParams, setPriceFilter }) {
+function FiltersNav({
+	location,
+	cafes,
+	searchParams,
+	setSearchParams,
+	setPriceFilter,
+}) {
 	// Create a state for the Price dropdown.
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -14,10 +20,6 @@ function FiltersNav({ location, cafes, searchParams, setSearchParams, setPriceFi
 	const [is2$Checked, setIs2$Checked] = useState(false);
 	const [is3$Checked, setIs3$Checked] = useState(false);
 	const [is4$Checked, setIs4$Checked] = useState(false);
-
-	// const handleFilterByOpen = () => {
-	// 	setUrl(`${baseUrl}&open_now`);
-	// };
 
 	const handleFilterByPrice = (e) => {
 		e.preventDefault();
@@ -61,8 +63,9 @@ function FiltersNav({ location, cafes, searchParams, setSearchParams, setPriceFi
 		}
 
 		setPriceFilter(`${price1}${price2}${price3}${price4}`);
-		setSearchParams({...searchParams,
-			price: `${location}&${price1}${price2}${price3}${price4}`,
+		setSearchParams({
+			location: searchParams.get('location'),
+			price: `${price1}${price2}${price3}${price4}`,
 		});
 		setIsOpen(!isOpen);
 	};
@@ -77,9 +80,6 @@ function FiltersNav({ location, cafes, searchParams, setSearchParams, setPriceFi
 					<Navbar.Toggle />
 					<Navbar.Collapse>
 						<Nav>
-							{/* <Nav.Link href='#' onClick={handleFilterByOpen}>
-								Open Now
-							</Nav.Link> */}
 							<NavDropdown
 								title='Price'
 								autoClose='outside'

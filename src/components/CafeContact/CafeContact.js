@@ -3,18 +3,21 @@ import './CafeContact.css';
 function CafeContact({ cafe }) {
 	if (!cafe.phone) {
 		return (
-			<p className='no-phone-number-text'>
+			<p>
 				<em>No phone number available.</em>
 			</p>
 		);
 	} else {
 		return (
-			<div className='phone-number-text'>
-				<a href={`tel:${cafe.phone}`} className='phone-number-link'>
-					<strong>Call 📞</strong>
+			<section>
+				<h6>
+					<strong>Contact</strong>
+				</h6>
+				<p>{cafe.display_phone}</p>
+				<a href={`tel:${cafe.phone}`} className='call-link'>
+					Call 📞
 				</a>
-				<p className='phone-number'>{cafe.display_phone}</p>
-			</div>
+			</section>
 		);
 	}
 }

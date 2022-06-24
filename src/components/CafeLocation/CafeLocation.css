@@ -1,9 +1,4 @@
-.address {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-/* -------------------------------------------------- DESKTOP STYLES */
-
-@media screen and (min-width: 768px) {
+.map-link,
+.map-link:visited {
+	color: blue;
 }

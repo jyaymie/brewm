@@ -1,3 +1,4 @@
+import './Home.css';
 import { useState, useEffect, useReducer } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Search from '../Search/Search';
@@ -21,8 +22,6 @@ function Home() {
 	const [error, setError] = useState('');
 
 	useEffect(() => {
-		// setCafes(null);
-		setLoading(true);
 		setError('');
 		setLocation(requestedLocation);
 		if (location) {
@@ -31,7 +30,7 @@ function Home() {
 			let url = `https://seir-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=cafe,coffee,tea&location=${location}&radius=16000&limit=15&sort_by=distance`;
 			// If a price filter is applied, modify the URL.
 			url = priceFilter ? `${url}&price=${priceFilter}` : url;
-
+			setLoading(true);
 			fetch(url, {
 				method: 'GET',
 				headers: {
@@ -41,7 +40,7 @@ function Home() {
 				.then((res) => {
 					if (res.status === 404) {
 						setError(
-							`We couldn't find any brewms near ${location}. Please try another search! `
+							`Hm...we couldn't find any brewms near ${location}. Let's do another search.`
 						);
 						setLoading(false);
 						return;
@@ -57,15 +56,14 @@ function Home() {
 				})
 				.catch((err) => {
 					console.log('Hm, something went wrong...', err);
-					setError('Uh-oh! Something went wrong. Please try again later.');
+					setError('Uh-oh! Something went wrong. Please chai again later.');
 					setLoading(false);
 				});
 		}
-		// Trigger useEffect when a new location is submitted or a filter is applied.
 	}, [location, priceFilter]);
 
 	return (
-		<div>
+		<div className="home-container">
 			<Search
 				location={location}
 				setLocation={setLocation}
@@ -80,10 +78,8 @@ function Home() {
 				setPriceFilter={setPriceFilter}
 			/>
 			<Cafes cafes={cafes} cafeResults={cafeResults} />
-			{/* If error is truthy, display the error message. */}
+			{loading && 'Finding the brewms!'}
 			{error && error}
-			{/* If loading is truthy, display the loading message. */}
-			{loading && 'Grabbing the brewms!'}
 		</div>
 	);
 }

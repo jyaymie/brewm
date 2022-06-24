@@ -9,21 +9,22 @@ function CafeLocation({ cafe }) {
 		);
 	} else {
 		return (
-			<div className='location-container'>
-				<div className='address-container'>
-					<p className='address'>{cafe.location.display_address[0]}</p>
-					<p className='address'>{cafe.location.display_address[1]}</p>
-					<p className='address'>{cafe.location.display_address[2]}</p>
-					<p className='address'>{cafe.location.display_address[3]}</p>
-				</div>
-				{/* Redirect users to Google Maps with the cafe's location mapped. */}
+			<section>
+				<h6>
+					<strong>Address</strong>
+				</h6>
+				<p>{cafe.location.display_address[0]}</p>
+				<p>{cafe.location.display_address[1]}</p>
+				<p>{cafe.location.display_address[2]}</p>
+				<p>{cafe.location.display_address[3]}</p>
+				{/* Redirect the user to Google Maps with the cafe's mapped location. */}
 				<a
 					href={`https://maps.google.com?q=${cafe.coordinates.latitude},${cafe.coordinates.longitude}`}
 					target='_blank'
-					className='location-link'>
-					<strong>Map It 📍</strong>
+					className='map-link'>
+					Map It 📍
 				</a>
-			</div>
+			</section>
 		);
 	}
 }

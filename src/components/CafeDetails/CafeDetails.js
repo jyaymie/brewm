@@ -15,7 +15,6 @@ function CafeDetails() {
 		photos: [],
 	});
 
-	// Grab the id param from the URL.
 	const { id } = useParams();
 
 	// Track loading and error states of the application for the API call.
@@ -37,28 +36,27 @@ function CafeDetails() {
 			)
 				.then((res) => res.json())
 				.then((data) => {
-					console.log('Success!', data);
+					console.log('Tea-rrific!', data);
 					setCafe(data);
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log('Hm, something went wrong...', err);
-					setError(
-						'Uh-oh! Something went wrong. Please check this brewm out later.'
-					);
+					console.log('An error? What does this bean...', err);
+					setError('Uh-oh! Something went wrong. Please chai again later.');
 					setLoading(false);
 				});
 		}
 	}, []);
 
 	return (
-		<div className='details-container'>
-			<header className='details-header'>
+		<div className="cafe-details-container">
+			<header>
 				<h2>{cafe.name}</h2>
 			</header>
-			<section>
+			<br />
+			<main>
 				<div>
-					<CafePhotos cafe={cafe} />
+					{!loading && <CafePhotos cafe={cafe} />}
 					<br />
 				</div>
 				<div className='details-text'>
@@ -68,11 +66,9 @@ function CafeDetails() {
 					<br />
 					{!loading && <CafeContact cafe={cafe} />}
 				</div>
-			</section>
-			{/* If error is truthy, display the error message. */}
+			</main>
+			{loading && "Something's brewing..."}
 			{error && error}
-			{/* If loading is truthy, display the loading message. */}
-			{loading && 'Grabbing the deets!'}
 		</div>
 	);
 }

@@ -9,7 +9,16 @@
 }
 
 /* .dropdown-toggle is a Bootstrap-assigned class. */
+.dropdown-toggle {
+	text-align: left;
+}
+
 .dropdown-toggle:hover {
 	background-color: transparent;
 	text-decoration: wavy underline;
+}
+
+/* .dropdown-item is a Bootstrap-assigned class. */
+.dropdown-item label {
+	margin-left: 5px;
 }
