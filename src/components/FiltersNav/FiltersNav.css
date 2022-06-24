@@ -1,10 +1,12 @@
 .navbar-container {
 	padding: 0 10px;
-	background-color: rgb(221, 246, 254);
+	/* background-color: rgb(90, 129, 140); */
+	background-color: rgb(118, 153, 163);
 }
 
 /* .navbar-brand is a Bootstrap-assigned class. */
 .navbar-brand {
+	margin-left: 3px;
 	font-size: 1rem;
 }
 

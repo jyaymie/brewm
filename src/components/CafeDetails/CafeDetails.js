@@ -41,7 +41,7 @@ function CafeDetails() {
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log('An error? What does this bean...', err);
+					console.log('An error! What could this bean...', err);
 					setError('Uh-oh! Something went wrong. Please chai again later.');
 					setLoading(false);
 				});
@@ -49,7 +49,8 @@ function CafeDetails() {
 	}, []);
 
 	return (
-		<div className="cafe-details-container">
+		<div className='cafe-details-container'>
+			<br />
 			<header>
 				<h2>{cafe.name}</h2>
 			</header>
@@ -67,6 +68,7 @@ function CafeDetails() {
 					{!loading && <CafeContact cafe={cafe} />}
 				</div>
 			</main>
+			<br />
 			{loading && "Something's brewing..."}
 			{error && error}
 		</div>

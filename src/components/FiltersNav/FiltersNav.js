@@ -1,17 +1,10 @@
 import './FiltersNav.css';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function FiltersNav({
-	location,
-	cafes,
-	searchParams,
-	setSearchParams,
-	setPriceFilter,
-}) {
+function FiltersNav({ cafes, searchParams, setSearchParams, setPriceFilter }) {
 	// Create a state for the Price dropdown.
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -75,7 +68,7 @@ function FiltersNav({
 		return (
 			// Render a navigation bar using Bootstrap styling.
 			<div className='navbar-container'>
-				<Navbar expand='sm'>
+				<Navbar variant='dark' expand='sm'>
 					<Navbar.Brand>Filters</Navbar.Brand>
 					<Navbar.Toggle />
 					<Navbar.Collapse>

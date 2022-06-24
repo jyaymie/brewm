@@ -25,7 +25,7 @@ function Search({ location, setLocation, searchParams, setSearchParams }) {
 				<Form.Control
 					type='text'
 					id='location'
-					placeholder='123 sesame st'
+					placeholder='123 central perk lane, new york'
 					value={locationText}
 					onChange={(e) => {
 						setLocationText(e.target.value);

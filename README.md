@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Brewm
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ☕️ Project Description
 
-## Available Scripts
+Brewm helps users find nearby cafes where they can work and study. Based on the entered location, the app will display a list of places automatically filtered as cafes (or spaces serving your much needed pick-me-up) and conveniently sorted by distance. Each cafe is linked to its own page of information that includes available photos, an address, business hours, and contact information.
 
-In the project directory, you can run:
+Have a look around: https://brewm.netlify.app
 
-### `npm start`
+Take a sneak peek:
+<img src="./src/assets/brewm-mobile-home.png" alt="Mobile screenshot of the home page">
+<img src="./src/assets/brewm-mobile-results.png" alt="Mobile screenshot of the search results">
+<img src="./src/assets/brewm-mobile-details.png" alt="Mobile screenshot of the details page">
+<img src="./src/assets/brewm-desktop-home.png" alt="Desktop screenshot of the home page">
+<img src="./src/assets/brewm-desktop-results.png" alt="Desktop screenshot of the search results">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The neat background image of the cup of jo was by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/s/photos/coffee-minimal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 👩‍💻 Technologies
 
-### `npm test`
+- This is a front-end React application that utilizes JSX, React Router, and React-Bootstrap.
+- Data was fetched from the Yelp Fusion API through a Heroku proxy server, which served as a workaround for CORS errors.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Installation
 
-### `npm run build`
+1.  Sign up for a free Yelp Fusion API key here: https://fusion.yelp.com/
+2.  Fork and clone this project.
+    `git clone https://github.com/your_username/Project-Name.git`
+3.  Change into the new directory.
+    `cd-react-cafe-finder`
+4.  Install the project dependencies with `npm install` and open the project.
+5.  Safely store your API key by adding an `.env.local` file in the project root directory and, inside the file, replacing the default text with `REACT_APP_YELP_KEY=YourYelpFusionAPIKey`.
+6.  Run your server with `npm run start` and start brewin' up a coding storm!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🤝 Contribution
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I am all about teamwork and constant imbrewvement (too far?). If you have any suggestions, submit an issue or create a pull request! Here are steps to the latter:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork and clone this project.
+2. Create a separate development branch.
+   `git checkout -b your_initials/feature_<feature_description>`
+   `git checkout -b your_initials/bug_<bug_description>`
+3. Commit your changes.
+   `git commit -m "Your brilliant addition"`
+4. Push to the branch.
+   `git push origin your_initials/feature_<feature_description>`
+5. Open a pull request on GitHub.
 
-### `npm run eject`
+##
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you so much for your interest in the Brewm app!

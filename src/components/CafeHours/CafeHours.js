@@ -24,9 +24,14 @@ const getFormattedTime = (militaryTime) => {
 function CafeHours({ cafe }) {
 	if (!cafe.hours) {
 		return (
-			<p>
-				<em>No business hours available.</em>
-			</p>
+			<section>
+				<h6>
+					<strong>Business Hours</strong>
+				</h6>
+				<p>
+					<em>No business hours available.</em>
+				</p>
+			</section>
 		);
 	} else {
 		return (
