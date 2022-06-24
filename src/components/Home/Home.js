@@ -1,6 +1,6 @@
 import './Home.css';
 import backgroundImage from '../../assets/cup-of-brew.jpg';
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Search from '../Search/Search';
 import FiltersNav from '../FiltersNav/FiltersNav';
