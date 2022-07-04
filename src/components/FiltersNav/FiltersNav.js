@@ -81,44 +81,52 @@ function FiltersNav({ cafes, searchParams, setSearchParams, setPriceFilter }) {
 									setIsOpen(!isOpen);
 								}}>
 								<NavDropdown.Item onClick={() => setIs1$Checked(!is1$Checked)}>
-									<input
-										type='checkbox'
-										name='price-1$'
-										id='price-1$'
-										checked={is1$Checked}
-										readOnly
-									/>
-									<label htmlFor='price-1$'>$</label>
+									<label htmlFor='price-1$'>
+										<input
+											type='checkbox'
+											name='price-1$'
+											id='price-1$'
+											checked={is1$Checked}
+											readOnly
+										/>{' '}
+										$
+									</label>
 								</NavDropdown.Item>
 								<NavDropdown.Item onClick={() => setIs2$Checked(!is2$Checked)}>
-									<input
-										type='checkbox'
-										name='price-2$'
-										id='price-2$'
-										checked={is2$Checked}
-										readOnly
-									/>
-									<label htmlFor='price-2$'>$$</label>
+									<label htmlFor='price-2$'>
+										<input
+											type='checkbox'
+											name='price-2$'
+											id='price-2$'
+											checked={is2$Checked}
+											readOnly
+										/>{' '}
+										$$
+									</label>
 								</NavDropdown.Item>
 								<NavDropdown.Item onClick={() => setIs3$Checked(!is3$Checked)}>
-									<input
-										type='checkbox'
-										name='price-3$'
-										id='price-3$'
-										checked={is3$Checked}
-										readOnly
-									/>
-									<label htmlFor='price-3$'>$$$</label>
+									<label htmlFor='price-3$'>
+										<input
+											type='checkbox'
+											name='price-3$'
+											id='price-3$'
+											checked={is3$Checked}
+											readOnly
+										/>{' '}
+										$$$
+									</label>
 								</NavDropdown.Item>
 								<NavDropdown.Item onClick={() => setIs4$Checked(!is4$Checked)}>
-									<input
-										type='checkbox'
-										name='price-4$'
-										id='price-4$'
-										checked={is4$Checked}
-										readOnly
-									/>
-									<label htmlFor='price-4$'>$$$$</label>
+									<label htmlFor='price-4$'>
+										<input
+											type='checkbox'
+											name='price-4$'
+											id='price-4$'
+											checked={is4$Checked}
+											readOnly
+										/>{' '}
+										$$$$
+									</label>
 								</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item onClick={handleFilterByPrice}>
