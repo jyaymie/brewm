@@ -22,36 +22,31 @@ const getFormattedTime = (militaryTime) => {
 };
 
 function CafeHours({ cafe }) {
-	if (!cafe.hours) {
-		return (
-			<section>
-				<h6>
-					<strong>Business Hours</strong>
-				</h6>
+	return (
+		<section>
+			<h6>
+				<strong>Business Hours</strong>
+			</h6>
+			{!cafe.hours ? (
 				<p>
 					<em>No business hours available.</em>
 				</p>
-			</section>
-		);
-	} else {
-		return (
-			<section>
-				<h6>
-					<strong>Business Hours</strong>
-				</h6>
-				{cafe.hours[0].open.map((businessHours) => (
-					<p key={businessHours.day}>
-						{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
-							businessHours.start
-						)} - ${getFormattedTime(businessHours.end)}`}
+			) : (
+				<>
+					{cafe.hours[0].open.map((businessHours) => (
+						<p key={businessHours.day}>
+							{`${daysOfWeek[businessHours.day]}: ${getFormattedTime(
+								businessHours.start
+							)} - ${getFormattedTime(businessHours.end)}`}
+						</p>
+					))}
+					<p>
+						<em>{'(Closed days are not listed.)'}</em>
 					</p>
-				))}
-				<p>
-					<em>{'(Closed days are not listed.)'}</em>
-				</p>
-			</section>
-		);
-	}
+				</>
+			)}
+		</section>
+	);
 }
 
 export default CafeHours;
