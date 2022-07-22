@@ -50,7 +50,7 @@ function Home() {
 					}
 				})
 				.then((data) => {
-					console.log('Success!', data.businesses);
+					console.log('Tea-rrific!', data.businesses);
 					setCafes(data.businesses);
 					setCafeResults(data.businesses);
 					setLoading(false);
@@ -74,7 +74,7 @@ function Home() {
 					searchParams={searchParams}
 					setSearchParams={setSearchParams}
 				/>
-				{loading && 'Finding the brewms!'}
+				{loading && 'Finding your brewms!'}
 				{error && error}
 			</div>
 		);
