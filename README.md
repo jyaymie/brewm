@@ -13,7 +13,7 @@ P.S. The neat background image of the cup of joe was created by <a href="https:/
 
 ## 👩‍💻 Technologies
 
-- This is a front-end React application that utilizes JSX, CSS, Bootstrap, and React-Router.
+- This is a front-end React application that utilizes JSX, CSS, Bootstrap, and React Router.
 - Data was fetched from the Yelp Fusion API through a Heroku proxy server, which served as a workaround for CORS errors.
 
 ## 🛠 Installation
